@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="contr"
+            type="com.example.rahulkumar.githubproject.ViewModels.VM.ContributorListViewModel"></variable>
+    </data>
+
+    <LinearLayout
+        android:layout_width="@dimen/dimen_110dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{(context)->contr.onItemClickListener(context)}"
+        >
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_130dp"
+            android:scaleType="centerCrop"
+            app:image="@{contr.imageUrl}" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotoblack"
+            android:gravity="center"
+            android:padding="@dimen/dimen_7dp"
+            android:textSize="@dimen/dimen_18dp"
+            android:text="@{contr.name}"
+            />
+    </LinearLayout>
+</layout>

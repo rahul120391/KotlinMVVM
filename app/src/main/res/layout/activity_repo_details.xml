@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="repo"
+            type="com.example.rahulkumar.githubproject.ViewModels.VM.RepoViewModel"></variable>
+
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.rahulkumar.githubproject.Views.activities.RepoDetailsActivity">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    app:image="@{repo.imageUrl}" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtNameHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageView"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:fontFamily="@font/robotobold"
+                    android:text="@string/namee"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_20dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/txtNameHead"
+                    android:layout_below="@+id/imageView"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_toRightOf="@+id/txtNameHead"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/robotoregular"
+                    android:maxLines="1"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:text="@{repo.name}"
+                    android:textSize="@dimen/dimen_18dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtProjectLinkHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtNameHead"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:fontFamily="@font/robotobold"
+                    android:text="@string/project_link"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_20dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtProjectLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/txtProjectLinkHead"
+                    android:layout_below="@+id/txtName"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_toRightOf="@+id/txtProjectLinkHead"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="@{repo.projectLink}"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:textSize="@dimen/dimen_18dp"
+                    android:onClickListener="@{repo.moveToLink()}"
+                    />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtDescriptionHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProjectLink"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:fontFamily="@font/robotobold"
+                    android:text="@string/desc"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_20dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/txtDescriptionHead"
+                    android:layout_below="@+id/txtProjectLink"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_toRightOf="@+id/txtDescriptionHead"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="@{repo.description}"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:textSize="@dimen/dimen_18dp"
+                    app:fontFamily="@font/robotoregular" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtContribution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtDescription"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:fontFamily="@font/robotobold"
+                    android:text="@string/contri"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_20dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/txtContribution"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_20dp">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvContributors"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="@{repo.recyclerViewVisibility}"
+                        android:nestedScrollingEnabled="false"
+                        ></android.support.v7.widget.RecyclerView>
+                    <android.support.v4.widget.ContentLoadingProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyle"
+                        android:visibility="@{repo.progressViewVisibility}"
+                        />
+                </FrameLayout>
+            </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/black_transparent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        </android.support.v7.widget.Toolbar>
+    </FrameLayout>
+
+</layout>

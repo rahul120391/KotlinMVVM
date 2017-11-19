@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GithubProject</string>
+    <string name="search">Search</string>
+    <string name="search_here">Search Here</string>
+    <string name="namee">Name : </string>
+    <string name="full_name">Full Name : </string>
+    <string name="watchers_count">Watchers Count : </string>
+    <string name="commit_count">Commit Count : </string>
+    <string name="project_link">Project Link :</string>
+    <string name="desc">Description :</string>
+    <string name="contri">Contributors :</string>
+</resources>
